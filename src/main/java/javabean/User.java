@@ -6,8 +6,16 @@ public class User {
   private long id;
   private long telNumber;
   private String pwd;
-  private String identify;
+  private int identify;
   private String address;
+
+
+  public User(long telNumber, String pwd, int identify, String address) {
+    this.telNumber = telNumber;
+    this.pwd = pwd;
+    this.identify = identify;
+    this.address = address;
+  }
 
 
   public long getId() {
@@ -37,11 +45,11 @@ public class User {
   }
 
 
-  public String getIdentify() {
+  public int getIdentify() {
     return identify;
   }
 
-  public void setIdentify(String identify) {
+  public void setIdentify(int identify) {
     this.identify = identify;
   }
 
