@@ -17,6 +17,10 @@ public class User {
     this.address = address;
   }
 
+    public User() {
+
+    }
+
 
   public long getId() {
     return id;
