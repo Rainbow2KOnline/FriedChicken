@@ -8,9 +8,9 @@ import java.sql.Statement;
 
 public class DBUtil {
 
-    static String user = "root";
-    static String password = "root";
-    static String url = "jdbc:mysql://localhost:3306/friedchicken?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8";
+    static String user = "remote";
+    static String password = "Memory.2015";
+    static String url = "jdbc:mysql://47.96.69.186:3306/friedchicken?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8";
 
     static {
         try {
