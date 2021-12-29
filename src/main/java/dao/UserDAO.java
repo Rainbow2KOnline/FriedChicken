@@ -5,6 +5,7 @@ import utils.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDAO {
@@ -25,5 +26,29 @@ public class UserDAO {
             DBUtil.closeJDBC(null,pstmt,conn);
             e.printStackTrace();
         }
+    }
+    public User login(String userLogname, String userPwd) {
+        Connection conn = DBUtil.getConnection();
+        PreparedStatement pstmt = null;
+        User u = null;
+        String sql = "SELECT id,tel_number,identify,address " +
+                "FROM user WHERE tel_number=? and pwd=?";
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userLogname);
+            pstmt.setString(2, userPwd);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                u = new User();
+                u.setId(rs.getInt(1));
+                u.setTelNumber(rs.getInt(2));
+                u.setIdentify(rs.getInt(3));
+                u.setAddress(rs.getString(4));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return u;
+
     }
 }
